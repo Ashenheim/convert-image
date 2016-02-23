@@ -1,0 +1,73 @@
+/* ====================================
+    Variables
+==================================== */
+
+/*
+    colors
+------------------------------------ */
+
+// default colors
+$aqua                   : #7FDBFF;
+$blue                   : #0074D9;
+$navy                   : #001F3F;
+$teal                   : #39CCCC;
+$green                  : #2ECC40;
+$olive                  : #3D9970;
+$lime                   : #01FF70;
+$yellow                 : #FFDC00;
+$orange                 : #FF851B;
+$red                    : #FF4136;
+$fuchsia                : #F012BE;
+$purple                 : #B10DC9;
+$maroon                 : #85144B;
+$white                  : #ffffff;
+$silver                 : #dddddd;
+$gray                   : #aaaaaa;
+$black                  : #000000;
+
+// site colors
+$c-primary              : #1C51FF;
+$c-primary-light        : #3665ff;
+$c-primary-dark         : #0036e8;
+
+$c-accent               : #E8CE6F;
+$c-accent-light         : #faf3dd;
+$c-accent-lighter       : #FFFFFF;
+$c-accent-dark          : #C1A94F;
+
+$c-background           : #F4F7F9;
+$c-background-light     : #FFFFFF;
+$c-background-dark      : #E5E9EB;
+$c-background-darker    : #8D959F;
+
+$c-foreground           : #191919;
+$c-foreground-light     : #333333;
+$c-foreground-dark      : #111111;
+$c-foreground-darker    : #000000;
+
+// Text
+$c-text                 : $c-foreground;
+$c-link                 : $c-primary;
+$c-link--hover          : $c-primary-dark;
+
+// Layout
+$c-background           : $c-background;
+
+// Base
+$font-family	        : 'Source Sans Pro', 'sans-serif';
+$font-size              : 14px;
+
+$site-width		        : 960px;
+$gutter			        : 15px;
+
+// Spacings
+$spacing-small          : 8px;
+$spacing-medium         : 16px;
+$spacing-large          : 32px;
+
+// Animations
+$easing--fast           : 150ms;
+$easing			        : 300ms;
+$easing--slow           : 600ms;
+
+$cubic-in-out           : cubic-bezier(0.165, 0.84, 0.44, 1);

@@ -1,0 +1,30 @@
+/* ====================================
+    Base styling
+==================================== */
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+html,
+body {
+    font-size: $font-size;
+    font-family: $font-family;
+    font-smoothing: antialiased;
+    color: $c-text;
+    box-sizing: border-box;
+    background: $c-background;
+    line-height: 1.4;
+}
+
+body {
+    overflow-x:  hidden;
+}
+
+
+::selection {
+    background: $c-primary;
+    color: white;
+    text-shadow: none;
+}

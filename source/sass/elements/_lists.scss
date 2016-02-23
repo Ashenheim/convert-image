@@ -1,0 +1,21 @@
+/* ====================================
+    List styling
+==================================== */
+
+
+ul,
+ol {
+    padding: 0;
+    list-style: none;
+}
+
+
+article {
+    ul {
+        margin: 0 0 $spacing-medium 2em;
+        list-style: disc;
+    }
+    li {
+        margin-top: $spacing-small;
+    }
+}

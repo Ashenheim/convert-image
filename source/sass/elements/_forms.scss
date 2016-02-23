@@ -1,0 +1,25 @@
+/* ====================================
+    Form styling
+==================================== */
+
+$label-width: 200px;
+
+input {
+    width: 100%;
+}
+
+.form {
+    &-item {
+        position: relative;
+        @include media('screen', '>mobile') {
+            padding-left: $label-width;
+        }
+    }
+    &-label {
+        display: block;
+        @include media('screen', '>mobile') {
+            position: absolute; top: 0; left: 0;
+            width: $label-width;
+        }
+    }
+}

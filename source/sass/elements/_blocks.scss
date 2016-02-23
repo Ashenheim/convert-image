@@ -1,0 +1,24 @@
+/* ====================================
+    Reusable blocks
+==================================== */
+
+.loading-block  {
+    font-weight: bold;
+
+    span {
+        animation: loadingBlockDot 1s ease-in-out infinite;
+        display: inline-block;
+
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+                animation-delay: 50ms * $i;
+            }
+        }
+    }
+}
+
+@keyframes loadingBlockDot {
+    0%,
+    100% { opacity: 0.8; transform: scale(0.8); }
+    50%  { opacity: 1; transform: none; }
+}

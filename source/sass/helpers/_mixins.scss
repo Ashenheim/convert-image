@@ -1,0 +1,154 @@
+/* ====================================
+    Mixins & Functions
+==================================== */
+
+
+
+/*
+    edit
+    ----
+
+    adds a background to all children for easier
+    overview on creating the layout
+------------------------------------ */
+
+@mixin edit($color: $black, $opacity: .01) {
+    $editBackground: rgba($color, $opacity);
+    // background: $editBackground;
+    * { background-color: $editBackground; }
+}
+
+
+/*
+    clearfix
+    --------
+
+    Adds clearfix to the element
+------------------------------------ */
+
+@mixin clearfix() {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin cf() {
+    @include clearfix();
+}
+
+
+/*
+    Media Query
+    -----------
+
+    Add easy Media queries
+------------------------------------ */
+
+$media-desktop:992px;
+$media-tablet: 767px;
+$media-mobile: 480px;
+
+@function translate-media-conditions($c) {
+    $conditionsMap: (
+        "screen": "only screen",
+        "print": "only print",
+        "retina": "(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (min-resolution: 120dpi)",
+
+        ">desktop": "(min-width: #{$media-desktop + 1})",
+        "<desktop": "(max-width: #{$media-desktop})",
+        ">tablet":  "(min-width: #{$media-tablet + 1})",
+        "<tablet":  "(max-width: #{$media-tablet})",
+        ">mobile":  "(min-width: #{$media-mobile + 1})",
+        "<mobile":  "(max-width: #{$media-mobile})"
+    );
+    @return map-get( $conditionsMap, $c );
+}
+
+// The media mixin
+@mixin media($args...) {
+    $query: "";
+
+    // Loops through all $arguments passed, and if more then one is found add " and " between them
+    @each $arg in $args {
+        $op: "";
+        @if ( $query != "" ) {
+            $op: " and ";
+        }
+        $query: $query + $op + translate-media-conditions($arg);
+    }
+    @media #{$query} { @content; }
+}
+
+
+/*
+    expand element outside its container
+------------------------------------ */
+
+@mixin expand-full-width() {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
+
+
+/*
+    Text outline
+    -----------
+
+    Get colors from variables in a
+    neater way
+------------------------------------ */
+
+@mixin underline($color, $hover-color: false, $background-color: $c-background) {
+    color: $color;
+    text-decoration: none;
+    background-image: linear-gradient(transparent 50%, $color 50%);
+    background-repeat: repeat-x;
+    background-size: 2px 2px;
+    background-position: 0 95%;
+    transition: color .2s ease-out;
+    text-shadow: .03em 0 0 $background-color,
+                 .06em 0 0 $background-color,
+                 .09em 0 0 $background-color,
+                 .12em 0 0 $background-color,
+                 .15em 0 0 $background-color,
+                -.03em 0 0 $background-color,
+                -.06em 0 0 $background-color,
+                -.09em 0 0 $background-color,
+                -.12em 0 0 $background-color,
+                -.15em 0 0 $background-color;
+
+    @if ($hover-color) {
+        &:hover {
+            color: $hover-color;
+            background: linear-gradient(transparent 50%, $hover-color 50%);
+            background-repeat: repeat-x;
+            background-size: 2px 2px;
+            background-position: 0 95%;
+        }
+    }
+}
+
+
+
+/*
+    Ratio Box
+    ---------
+
+    Get colors from variables in a
+    neater way
+------------------------------------ */
+
+@mixin ratio-box($calc, $bg: false) {
+    &:after {
+        content: '';
+        width: 100%;
+        height: 0;
+        padding-bottom: ($calc) * 100%;
+        display: block;
+        @if $bg {
+            background-color: $bg;
+        }
+    }
+}

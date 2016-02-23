@@ -1,0 +1,20 @@
+/* ====================================
+    Forms
+==================================== */
+
+
+table {
+    background: $c-background-light;
+    border: 1px solid $c-background-dark;
+    border-bottom-width: 2px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+
+    th,
+    td {
+        border: 1px solid $c-background-dark;
+        padding: $spacing-small;
+        max-width: 240px;
+    }
+}

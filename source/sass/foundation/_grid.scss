@@ -1,0 +1,75 @@
+// ====================================
+//  Grid System
+// ====================================
+
+
+$grid-columns: 12;
+
+
+// ------------------------------------
+//  Functions and Mixins
+// ------------------------------------
+
+@mixin container() {
+    max-width: $site-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $gutter;
+    padding-right: $gutter;
+}
+
+@mixin row() {
+    margin-left: -#{$gutter};
+    margin-right: -#{$gutter};
+    @include cf;
+}
+
+@function column-width($i) {
+    @return (100% / $grid-columns) * $i;
+}
+
+%column {
+    padding-left: $gutter;
+    padding-right: $gutter;
+    float: left;
+}
+
+@mixin column($i) {
+    width: column-width($i);
+    @extend %column;
+}
+
+
+
+// ------------------------------------
+//  Functions and Mixins
+// ------------------------------------
+
+@if map-get($generate, "gridClasses") == true {
+
+    .container {
+        @include container;
+    }
+
+    .row {
+        @include row();
+    }
+
+    @for $i from 1 through $grid-columns {
+        .col-#{$i} {
+            @include column($grid-columns);
+            @include media('screen', '>mobile') {
+                @include column($i);
+            }
+        }
+    }
+
+    .full-width {
+        @include expand-full-width;
+        img,
+        svg {
+            width: 100%;
+            display: block;
+        }
+    }
+}
