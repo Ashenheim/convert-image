@@ -11,9 +11,10 @@ $(document).ready(function() {
     });
     let readImage = new ReadImage({
         element: '#imageInput',
-        onChange: (image) => convertimage.changeImage(image)
+        onChange: (image) => {
+            convertimage.changeImage(image);
+        }
     });
 
-    $('#buttonCanvas').on('click', () => convertimage.preview('#preview'));
-    $('#buttonTemplate').on('click', () => convertimage.output('#output'));
+    $('#button').on('click', () => convertimage.preview('#preview'));
 });

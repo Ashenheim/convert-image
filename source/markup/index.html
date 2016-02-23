@@ -11,11 +11,15 @@
 </head>
 <body>
 
-    <div class="inputBar">
-        <input type='file' id="imageInput" />
+    <div class="content">
+        <button id="button">Preview</button>
+        <div id="preview"></div>
+        <pre><code id="output"></code></pre>
     </div>
-    <div id="preview"></div>
-    <pre><code id="output"></code></pre>
+
+    <div class="inputBar">
+        <input class="inputBar-input" type='file' id="imageInput" />
+    </div>
 
 <script id="previewTemplate" type="x-tmpl-mustache">
 {{#pixels}}

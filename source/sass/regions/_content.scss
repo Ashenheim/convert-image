@@ -1,3 +1,20 @@
 /* ====================================
     Content styling
 ==================================== */
+
+.content {
+    flex: 1;
+}
+
+.inputBar {
+    position: fixed; bottom: 0; left: 0;
+    background: $c-primary;
+    color: $white;
+    width: 100%;
+
+    &-input {
+        padding: $spacing-small;
+        opacity: 0;
+        cursor: pointer;
+    }
+}
